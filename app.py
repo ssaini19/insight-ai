@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -23,9 +23,14 @@ REPORTS = [
   },
 ]
 
+@app.route("/api/reports")
+def list_reports():
+  return jsonify(REPORTS)
+
+
 
 @app.route("/")
-def hello_world():
+def main():
   return render_template('home.html',
                          reports=REPORTS,
                          company_name='Insight Ai')
