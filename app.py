@@ -23,10 +23,10 @@ REPORTS = [
   },
 ]
 
+
 @app.route("/api/reports")
 def list_reports():
   return jsonify(REPORTS)
-
 
 
 @app.route("/")
